@@ -8,8 +8,8 @@
 
 body {
   margin: 0;
-  padding: 20px;
-  background: #0f0f0f;
+  padding: 24px;
+  background: #0e0e0e;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   display: flex;
   justify-content: center;
@@ -22,9 +22,9 @@ body {
   width: 360px;
   background: #1b1b1b;
   padding: 16px;
-  border-radius: 10px;
+  border-radius: 12px;
   color: #eaeaea;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.65);
 }
 
 /* =========================================================
@@ -43,32 +43,7 @@ body {
 
 .brand .subtitle {
   font-size: 12px;
-  opacity: 0.65;
-}
-
-/* =========================================================
-   DISPLAY AREA
-========================================================= */
-.display {
-  background: #cfd8dc;
-  color: #000;
-  padding: 10px;
-  border-radius: 6px;
-  margin-bottom: 6px;
-}
-
-#numeric {
-  font-size: 22px;
-  font-weight: 600;
-  text-align: right;
-  letter-spacing: 0.5px;
-}
-
-#words {
-  font-size: 12px;
-  margin-top: 4px;
-  opacity: 0.75;
-  line-height: 1.3;
+  opacity: 0.6;
 }
 
 /* =========================================================
@@ -89,6 +64,30 @@ body {
 }
 
 /* =========================================================
+   DISPLAY
+========================================================= */
+.display {
+  background: #cfd8dc;
+  color: #000;
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+
+#numeric {
+  font-size: 22px;
+  font-weight: 600;
+  text-align: right;
+}
+
+#words {
+  font-size: 12px;
+  margin-top: 4px;
+  opacity: 0.75;
+  line-height: 1.3;
+}
+
+/* =========================================================
    LABEL
 ========================================================= */
 .label {
@@ -100,72 +99,78 @@ body {
 }
 
 /* =========================================================
-   KEYPAD GRID
+   🔥 KEYPAD GRID (THIS FIXES EVERYTHING)
 ========================================================= */
-.keys {
+.keypad {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(9, auto);
   gap: 8px;
 }
 
 /* =========================================================
-   BUTTONS
+   BASE BUTTON
 ========================================================= */
-button {
-  min-height: 44px;
-  background: #2a2a2a;
-  color: #ffffff;
+.key {
+  min-height: 42px;
+  background: #1e1e1e;
+  color: #eaeaea;
   border: none;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
+  position: relative;
   transition: background 0.15s ease, transform 0.05s ease;
 }
 
-button:active {
-  background: #3a3a3a;
-  transform: scale(0.97);
+.key:active {
+  background: #2a2a2a;
+  transform: scale(0.96);
 }
 
 /* =========================================================
-   FUNCTION KEYS (TVM / CF / NAV)
+   SECONDARY (2ND) LABEL
 ========================================================= */
-button[data-key="N"],
-button[data-key="I/Y"],
-button[data-key="PV"],
-button[data-key="PMT"],
-button[data-key="FV"],
-button[data-key="CPT"],
-button[data-key="NPV"],
-button[data-key="IRR"],
-button[data-key="BGN"],
-button[data-key="ENTER"],
-button[data-key="UP"],
-button[data-key="DOWN"] {
-  background: #3b3b3b;
-  font-size: 13px;
-}
-
-button[data-key="CPT"] {
-  background: #5a3d1e;
+.key .secondary {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  font-size: 10px;
+  color: #d6b35c;
+  opacity: 0.9;
 }
 
 /* =========================================================
-   OPERATOR KEYS
+   BUTTON TYPES
 ========================================================= */
-button[data-key="+"],
-button[data-key="-"],
-button[data-key="*"],
-button[data-key="/"] {
+.key.numeric {
+  background: #7a7a7a;
+  color: #fff;
+}
+
+.key.accent {
+  background: #d6b35c;
+  color: #000;
+}
+
+.key.pill {
+  border-radius: 999px;
+}
+
+/* =========================================================
+   OPERATOR / SPECIAL KEYS
+========================================================= */
+.key[data-key="+"],
+.key[data-key="-"],
+.key[data-key="*"],
+.key[data-key="/"],
+.key[data-key="="] {
   background: #444;
 }
 
-/* =========================================================
-   CLEAR KEYS
-========================================================= */
-button[data-key="CLR"],
-button[data-key="CLR_ALL"] {
+.key[data-key="CLR"],
+.key[data-key="CE/C"] {
   background: #6b2c2c;
 }
 
