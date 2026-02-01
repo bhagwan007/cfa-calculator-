@@ -3,90 +3,153 @@
 <head>
   <meta charset="UTF-8" />
   <title>AMAN · Handle With Care</title>
-
-  <!-- Mobile friendly -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+<div class="calculator">
 
-  <div class="calculator">
-
-    <!-- Branding -->
-    <div class="brand">
-      <div class="title">AMAN</div>
-      <div class="subtitle">Handle With Care</div>
-    </div>
-
-    <!-- Indicators -->
-    <div class="indicators">
-      <span id="ind-bgn">BGN</span>
-      <span id="ind-enter">ENTER</span>
-    </div>
-
-    <!-- Display -->
-    <div class="display">
-      <div id="numeric">0.0000</div>
-      <div id="words">zero point zero zero zero zero</div>
-    </div>
-
-    <!-- Label -->
-    <div class="label">BUSINESS ANALYST</div>
-
-    <!-- Keypad -->
-    <div class="keys">
-
-      <!-- TVM -->
-      <button data-key="N">N</button>
-      <button data-key="I/Y">I/Y</button>
-      <button data-key="PV">PV</button>
-      <button data-key="PMT">PMT</button>
-      <button data-key="FV">FV</button>
-      <button data-key="CPT">CPT</button>
-
-      <!-- Navigation -->
-      <button data-key="UP">↑</button>
-      <button data-key="DOWN">↓</button>
-      <button data-key="ENTER">ENTER</button>
-      <button data-key="BGN">BGN</button>
-
-      <!-- Cash Flow -->
-      <button data-key="NPV">NPV</button>
-      <button data-key="IRR">IRR</button>
-
-      <!-- Numbers & Operators -->
-      <button data-key="7">7</button>
-      <button data-key="8">8</button>
-      <button data-key="9">9</button>
-      <button data-key="/">÷</button>
-
-      <button data-key="4">4</button>
-      <button data-key="5">5</button>
-      <button data-key="6">6</button>
-      <button data-key="*">×</button>
-
-      <button data-key="1">1</button>
-      <button data-key="2">2</button>
-      <button data-key="3">3</button>
-      <button data-key="-">−</button>
-
-      <button data-key="0">0</button>
-      <button data-key=".">.</button>
-      <button data-key="±">±</button>
-      <button data-key="+">+</button>
-
-      <!-- Clear -->
-      <button data-key="CLR">CLR</button>
-      <button data-key="CLR_ALL">C/A</button>
-
-    </div>
-
+  <!-- BRAND -->
+  <div class="brand">
+    <div class="title">AMAN</div>
+    <div class="subtitle">Handle With Care</div>
   </div>
 
-  <!-- Logic -->
-  <script src="app.js"></script>
+  <!-- INDICATORS -->
+  <div class="indicators">
+    <span id="ind-bgn">BGN</span>
+    <span id="ind-enter">ENTER</span>
+  </div>
+
+  <!-- DISPLAY -->
+  <div class="display">
+    <div id="numeric">0.0000</div>
+    <div id="words">zero point zero zero zero zero</div>
+  </div>
+
+  <div class="label">BUSINESS ANALYST</div>
+
+  <!-- KEYPAD GRID -->
+  <div class="keypad">
+
+    <!-- ROW 1 -->
+    <button class="key" data-key="QUIT" style="grid-row:1;grid-column:1">
+      QUIT <span class="secondary">CPT</span>
+    </button>
+    <button class="key" data-key="SET" style="grid-row:1;grid-column:2">
+      SET <span class="secondary">ENTER</span>
+    </button>
+    <button class="key" data-key="DEL" style="grid-row:1;grid-column:3">
+      DEL <span class="secondary">↑</span>
+    </button>
+    <button class="key" data-key="INS" style="grid-row:1;grid-column:4">
+      INS <span class="secondary">↓</span>
+    </button>
+    <button class="key pill" data-key="ON" style="grid-row:1;grid-column:5 / span 2">
+      ON/OFF
+    </button>
+
+    <!-- ROW 2 -->
+    <button class="key accent" data-key="2ND" style="grid-row:2;grid-column:1">
+      2ND <span class="secondary">xP/Y</span>
+    </button>
+    <button class="key" data-key="CF" style="grid-row:2;grid-column:2">
+      CF <span class="secondary">P/Y</span>
+    </button>
+    <button class="key" data-key="NPV" style="grid-row:2;grid-column:3">
+      NPV <span class="secondary">AMORT</span>
+    </button>
+    <button class="key" data-key="IRR" style="grid-row:2;grid-column:4">
+      IRR <span class="secondary">BGN</span>
+    </button>
+    <button class="key" data-key="CLR_TVM" style="grid-row:2;grid-column:5 / span 2">
+      → <span class="secondary">CLR TVM</span>
+    </button>
+
+    <!-- ROW 3 -->
+    <button class="key" data-key="N" style="grid-row:3;grid-column:1">
+      N <span class="secondary">K</span>
+    </button>
+    <button class="key" data-key="I/Y" style="grid-row:3;grid-column:2">I/Y</button>
+    <button class="key" data-key="PV" style="grid-row:3;grid-column:3">PV</button>
+    <button class="key" data-key="PMT" style="grid-row:3;grid-column:4">PMT</button>
+    <button class="key" data-key="FV" style="grid-row:3;grid-column:5 / span 2">
+      FV <span class="secondary">RAND</span>
+    </button>
+
+    <!-- ROW 4 -->
+    <button class="key" data-key="%" style="grid-row:4;grid-column:1">
+      % <span class="secondary">HYP</span>
+    </button>
+    <button class="key" data-key="SQRT" style="grid-row:4;grid-column:2">
+      √x <span class="secondary">SIN</span>
+    </button>
+    <button class="key" data-key="X2" style="grid-row:4;grid-column:3">
+      x² <span class="secondary">COS</span>
+    </button>
+    <button class="key" data-key="INV" style="grid-row:4;grid-column:4">
+      1/x <span class="secondary">TAN</span>
+    </button>
+    <button class="key" data-key="/" style="grid-row:4;grid-column:5 / span 2">
+      ÷ <span class="secondary">x!</span>
+    </button>
+
+    <!-- ROW 5 -->
+    <button class="key" data-key="INVX" style="grid-row:5;grid-column:1">
+      INV <span class="secondary">eˣ</span>
+    </button>
+    <button class="key" data-key="(" style="grid-row:5;grid-column:2">
+      ( <span class="secondary">DATA</span>
+    </button>
+    <button class="key" data-key=")" style="grid-row:5;grid-column:3">
+      ) <span class="secondary">STAT</span>
+    </button>
+    <button class="key" data-key="Y^X" style="grid-row:5;grid-column:4">
+      yˣ <span class="secondary">BOND</span>
+    </button>
+    <button class="key" data-key="*" style="grid-row:5;grid-column:5 / span 2">
+      × <span class="secondary">nPr</span>
+    </button>
+
+    <!-- ROW 6 -->
+    <button class="key" data-key="LN" style="grid-row:6;grid-column:1">
+      LN <span class="secondary">ROUND</span>
+    </button>
+    <button class="key numeric" data-key="7" style="grid-row:6;grid-column:2">7</button>
+    <button class="key numeric" data-key="8" style="grid-row:6;grid-column:3">8</button>
+    <button class="key numeric" data-key="9" style="grid-row:6;grid-column:4">9</button>
+    <button class="key" data-key="-" style="grid-row:6;grid-column:5 / span 2">
+      − <span class="secondary">nCr</span>
+    </button>
+
+    <!-- ROW 7 -->
+    <button class="key" data-key="STO" style="grid-row:7;grid-column:1">STO</button>
+    <button class="key numeric" data-key="4" style="grid-row:7;grid-column:2">4</button>
+    <button class="key numeric" data-key="5" style="grid-row:7;grid-column:3">5</button>
+    <button class="key numeric" data-key="6" style="grid-row:7;grid-column:4">6</button>
+    <button class="key" data-key="+" style="grid-row:7;grid-column:5 / span 2">
+      + <span class="secondary">ANS</span>
+    </button>
+
+    <!-- ROW 8 -->
+    <button class="key" data-key="RCL" style="grid-row:8;grid-column:1">
+      RCL <span class="secondary">CLR WORK</span>
+    </button>
+    <button class="key numeric" data-key="1" style="grid-row:8;grid-column:2">1</button>
+    <button class="key numeric" data-key="2" style="grid-row:8;grid-column:3">2</button>
+    <button class="key numeric" data-key="3" style="grid-row:8;grid-column:4">3</button>
+    <button class="key" data-key="=" style="grid-row:8;grid-column:5 / span 2">=</button>
+
+    <!-- ROW 9 -->
+    <button class="key" data-key="CLR" style="grid-row:9;grid-column:1">CE/C</button>
+    <button class="key numeric" data-key="0" style="grid-row:9;grid-column:2">0</button>
+    <button class="key numeric" data-key="." style="grid-row:9;grid-column:3">.</button>
+    <button class="key" data-key="±" style="grid-row:9;grid-column:4">±</button>
+
+  </div>
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>
